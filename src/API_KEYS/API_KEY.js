@@ -1,0 +1,4 @@
+const PUBLIC_KEY = "62e061fe84519a0295c343e86b411bdf",
+      PRIVATE_KEY= "1245ef6017eb16f93d26cc7fb3a01cbd741cb7f3";
+
+export default PUBLIC_KEY;
