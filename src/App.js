@@ -5,15 +5,15 @@ import { createBrowserHistory } from "history";
 import './App.css';
 
 import SimpleSearch from "./pages/SimpleSearch";
-/* import CustomSearch from "./pages/CustomSearch";
- */
+import CustomSearch from "./pages/CustomSearch";
+
 const history = createBrowserHistory();
 
 function App() {
   return (
     <Router history={history}>
-      <Route path="/" component={SimpleSearch} />
-      {/* <Route path="/customsearch" component={CustomSearch} /> */}
+      <Route exact path="/" component={SimpleSearch} />
+      <Route path="/customsearch" component={CustomSearch} />
     </Router>
   );
 }

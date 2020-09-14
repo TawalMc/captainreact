@@ -30,7 +30,7 @@ function NavBar() {
                 <Typography variant="h6" className={ownStyle.title}>
                     Captain React
                 </Typography>
-                <Button color="inherit">Marvel</Button>
+                <Button color="inherit">Heroes</Button>
             </Toolbar>
         </AppBar>
     );
