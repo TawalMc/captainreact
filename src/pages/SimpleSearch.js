@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Grid, makeStyles, TextField, Button, Typography } from '@material-ui/core';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
 import "../css/SimpleSearch.css";
-/* import logo from "../css/logo512.png"; */
+
 import NavBar from "../components/NavBar";
 import {HeroSections, DataNotAvailable} from "../components/HeroSections";
 import PUBLIC_KEY from "../API_KEYS/API_KEY";
@@ -32,13 +32,13 @@ function SimpleSearch() {
     //var heroFound = new Hero();
     
     const [userInput, setUserInput] = useState("655"); // to store user input and search heroes 
-    const [isAvailable, setIsAvailable] = useState(true); // to store some informations about heroes searched
+    const [isAvailable, setIsAvailable] = useState(false); // to store some informations about heroes searched
     const [heroFound, setHeroFound] = useState(null);
-    const [render, setRender] = useState(false);
+    // const [render, setRender] = useState(false);
 
-    useEffect(() => {
+    /* useEffect(() => {
         search();
-    });
+    }); */
 
     // SuperHero API using
     function fetchHeroesByName(heroName) {
@@ -126,7 +126,7 @@ function SimpleSearch() {
 
                 <Grid container item alignItems="center" justify="center">
                     <Grid item xs={11} md={3}>
-                        {isAvailable ? <HeroSections heroData={heroFound} /> : <DataNotAvailable />}
+                        {isAvailable && <HeroSections heroData={heroFound} />}   { /*: <DataNotAvailable /> */}
                     </Grid>
                 </Grid>
             </Grid>
