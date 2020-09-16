@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles,
     AppBar, IconButton, Toolbar,
-    Typography, Button, Drawer} from '@material-ui/core';
+    Typography, Button, /* Drawer */} from '@material-ui/core';
     import FitnessCenterOutlinedIcon from '@material-ui/icons/FitnessCenterOutlined';
 
 import "../css/SimpleSearch.css";

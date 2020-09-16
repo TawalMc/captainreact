@@ -3,7 +3,7 @@ import { Grid, makeStyles, TextField, Button, Typography } from '@material-ui/co
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
 import "../css/SimpleSearch.css";
-import logo from "../css/logo512.png";
+/* import logo from "../css/logo512.png"; */
 import NavBar from "../components/NavBar";
 import {HeroSections, DataNotAvailable} from "../components/HeroSections";
 import PUBLIC_KEY from "../API_KEYS/API_KEY";
@@ -32,20 +32,20 @@ function SimpleSearch() {
     //var heroFound = new Hero();
     
     const [userInput, setUserInput] = useState("655"); // to store user input and search heroes 
-    const [isAvailable, setIsAvailable] = useState(false); // to store some informations about heroes searched
+    const [isAvailable, setIsAvailable] = useState(true); // to store some informations about heroes searched
     const [heroFound, setHeroFound] = useState(null);
+    const [render, setRender] = useState(false);
 
     useEffect(() => {
         search();
-    }, []);
-
+    });
 
     // SuperHero API using
     function fetchHeroesByName(heroName) {
         fetch(`https://superheroapi.com/api/${PUBLIC_KEY}/search/${heroName}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+             
             })
             .catch(error => {
                 alert(error);
