@@ -5,7 +5,7 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import "../css/SimpleSearch.css";
 import logo from "../css/logo512.png";
 import NavBar from "../components/NavBar";
-import HeroSections from "../components/HeroSections";
+import {HeroSections, DataNotAvailable} from "../components/HeroSections";
 import PUBLIC_KEY from "../API_KEYS/API_KEY";
 
 
@@ -35,12 +35,10 @@ function SimpleSearch() {
     const [isAvailable, setIsAvailable] = useState(false); // to store some informations about heroes searched
     const [heroFound, setHeroFound] = useState(null);
 
-    /* useEffect(() => {
-        console.log("Using useEffect");
-        console.log(heroFound);
+    useEffect(() => {
+        search();
+    }, []);
 
-    }, [isAvailable]);
- */
 
     // SuperHero API using
     function fetchHeroesByName(heroName) {
@@ -128,7 +126,7 @@ function SimpleSearch() {
 
                 <Grid container item alignItems="center" justify="center">
                     <Grid item xs={11} md={3}>
-                        {isAvailable && <HeroSections heroData={heroFound} />}
+                        {isAvailable ? <HeroSections heroData={heroFound} /> : <DataNotAvailable />}
                     </Grid>
                 </Grid>
             </Grid>
@@ -149,5 +147,6 @@ class Hero {
         this.publisher = publisher;
     }
 }
+
 
 export default SimpleSearch;

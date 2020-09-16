@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function HeroSections(props) {
+export function HeroSections(props) {
     const classes = useStyles();
     const heroData = props.heroData;
 
@@ -84,9 +84,24 @@ export default function HeroSections(props) {
                         </Button>
                     </Grid>
                 </Grid>
-
-
             </CardActions>
+        </Card>
+    );
+}
+
+export function DataNotAvailable() {
+    const classes = useStyles();
+    return (
+        <Card className={classes.root} square={true}>
+            <CardContent>
+                <Grid container spacing={2} justify="center" alignItems="center">
+                    <Grid item xs={12}>
+                        <Typography align="left" color="error">
+                            😒😒😒 We know you! You entered a wrong hero name or ID! Try again and leave me alone!
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </CardContent>
         </Card>
     );
 }
