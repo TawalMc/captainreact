@@ -35,37 +35,37 @@ export default function HeroSections(props) {
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    alt="Contemplative Reptile"
-                    height="140"
-                    image="/static/images/cards/contemplative-reptile.jpg"
-                    title="Contemplative Reptile"
+                    alt={heroData.heroName}
+                    height="250"
+                    image={heroData.photoUrl}
+                    title={heroData.heroName}
                 />
                 <CardContent>
                     <Grid container alignItems="center">
                         <Grid container item alignItems="center" justify="space-between" xs={12} className={classes.firstInfo}>
                             <Grid item xs={4}>
                                 <Typography gutterBottom className={classes.typName} variant="h6" component="h3">
-                                   heroName {heroData.heroName}
+                                   {heroData.heroName}
                                 </Typography>
                             </Grid>
                             <Grid item xs={8}>
                                 <Typography gutterBottom variant="body1" color="textPrimary" component="p" align="right">
-                                    height / width
+                                    {heroData.height}/ {heroData.weight}
                                 </Typography>
                                 <Typography gutterBottom variant="body1" color="textPrimary" component="p" align="right">
-                                    Bénin, Abomey-Calavi, Togoudo
+                                    {heroData.birthPlace}
                                 </Typography>
                             </Grid>
                         </Grid>
                         <Grid container item alignItems="center"  xs={12} justify="space-around">
                             <Typography gutterBottom variant="body2" color="textPrimary" component="p" className={classes.aliaseAlter}>
-                                Aliase name        
+                                {heroData.aliaseName}        
                             </Typography>
                             <Typography gutterBottom variant="body2" color="textPrimary" component="p">
                                 😎        
                             </Typography>
                             <Typography gutterBottom variant="body2" color="textPrimary" component="p" className={classes.aliaseAlter}>
-                                Alter ego
+                                {heroData.alterEgo}
                             </Typography>
                         </Grid>
                     </Grid>
@@ -75,12 +75,12 @@ export default function HeroSections(props) {
                 <Grid container item alignItems="center" justify="space-between" xs={12}>
                     <Grid item xs={6}>
                         <Button size="small" color="primary">
-                            Share
+                            {heroData.realName}
                         </Button>
                     </Grid>
                     <Grid container item xs={6} alignItems="center" justify="flex-end">
                         <Button size="small" color="primary" >
-                            Learn More
+                            {heroData.publisher}
                         </Button>
                     </Grid>
                 </Grid>

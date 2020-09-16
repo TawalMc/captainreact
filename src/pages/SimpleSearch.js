@@ -29,17 +29,18 @@ const useStyles = makeStyles((theme) => ({
 function SimpleSearch() {
     // state and hook
     const ownStyle = useStyles();
-    var heroFound = new Hero();
-
+    //var heroFound = new Hero();
+    
     const [userInput, setUserInput] = useState("655"); // to store user input and search heroes 
     const [isAvailable, setIsAvailable] = useState(false); // to store some informations about heroes searched
+    const [heroFound, setHeroFound] = useState(null);
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log("Using useEffect");
         console.log(heroFound);
-        
-    }, [isAvailable]);
 
+    }, [isAvailable]);
+ */
 
     // SuperHero API using
     function fetchHeroesByName(heroName) {
@@ -59,7 +60,7 @@ function SimpleSearch() {
             .then(data => {
 
                 if (data.response === "success") {
-                    treatData(data);
+                    setHeroFound(treatData(data));
                     setIsAvailable(true);
 
                 } else {
@@ -85,8 +86,7 @@ function SimpleSearch() {
             heroInfos.appearance.weight[1],
             heroInfos.biography.publisher
         );
-        heroFound = hero;
-        //console.log(hero);
+       return hero;
     }
 
     // work functions
