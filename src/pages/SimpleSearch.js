@@ -29,9 +29,17 @@ const useStyles = makeStyles((theme) => ({
 function SimpleSearch() {
     // state and hook
     const ownStyle = useStyles();
+    var heroFound = new Hero();
 
     const [userInput, setUserInput] = useState("655"); // to store user input and search heroes 
     const [isAvailable, setIsAvailable] = useState(false); // to store some informations about heroes searched
+
+    useEffect(() => {
+        console.log("Using useEffect");
+        console.log(heroFound);
+        
+    }, [isAvailable]);
+
 
     // SuperHero API using
     function fetchHeroesByName(heroName) {
@@ -52,10 +60,16 @@ function SimpleSearch() {
 
                 if (data.response === "success") {
                     treatData(data);
+                    setIsAvailable(true);
+
+                } else {
+                    setIsAvailable(false);
                 }
+                
             })
             .catch(error => {
                 console.log(error);
+                setIsAvailable(false);
             })
     }
 
@@ -71,7 +85,8 @@ function SimpleSearch() {
             heroInfos.appearance.weight[1],
             heroInfos.biography.publisher
         );
-        console.log(hero);
+        heroFound = hero;
+        //console.log(hero);
     }
 
     // work functions
@@ -82,6 +97,7 @@ function SimpleSearch() {
             // user provide an id
             if (id > 731) {
                 console.log("Not exist");
+                setIsAvailable(false);
             } else {
                 fetchHeroesById(id);
             }
@@ -112,7 +128,7 @@ function SimpleSearch() {
 
                 <Grid container item alignItems="center" justify="center">
                     <Grid item xs={11} md={3}>
-                        <HeroSections />
+                        {isAvailable && <HeroSections heroData={heroFound} />}
                     </Grid>
                 </Grid>
             </Grid>
