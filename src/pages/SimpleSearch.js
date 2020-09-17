@@ -52,10 +52,7 @@ function SimpleSearch() {
     }
 
     function fetchHeroesById(heroID) {
-        fetch(`https://superheroapi.com/api/${PUBLIC_KEY}/${heroID}`, {
-            referrer: "https://captainreact.herokuapp.com/",
-            mode: "cors"
-        })
+        fetch(`https://superheroapi.com/api/${PUBLIC_KEY}/${heroID}`)
             .then(response => response.json())
             .then(data => {
 
