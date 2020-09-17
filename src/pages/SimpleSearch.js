@@ -52,10 +52,12 @@ function SimpleSearch() {
     }
 
     function fetchHeroesById(heroID) {
-        fetch(`https://superheroapi.com/api/${PUBLIC_KEY}/${heroID}`)
+        fetch(`https://superheroapi.com/api/${PUBLIC_KEY}/${heroID}`, {
+            mode: "cors"
+        })
             .then(response => response.json())
             .then(data => {
-                alert(data);
+
                 if (data.response === "success") {
                     setHeroFound(treatData(data));
                     setIsAvailable(true);
@@ -66,7 +68,7 @@ function SimpleSearch() {
                 
             })
             .catch(error => {
-                alert(error);
+                console.log(error);
                 setIsAvailable(false);
             })
     }
