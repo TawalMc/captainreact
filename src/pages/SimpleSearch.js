@@ -3,7 +3,6 @@ import { Grid, makeStyles, TextField, Button, Typography } from '@material-ui/co
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
 import "../css/SimpleSearch.css";
-
 import NavBar from "../components/NavBar";
 import {HeroSections, DataNotAvailable} from "../components/HeroSections";
 import PUBLIC_KEY from "../API_KEYS/API_KEY";
@@ -56,7 +55,7 @@ function SimpleSearch() {
         fetch(`https://superheroapi.com/api/${PUBLIC_KEY}/${heroID}`)
             .then(response => response.json())
             .then(data => {
-
+                alert(data);
                 if (data.response === "success") {
                     setHeroFound(treatData(data));
                     setIsAvailable(true);
@@ -67,7 +66,7 @@ function SimpleSearch() {
                 
             })
             .catch(error => {
-                console.log(error);
+                alert(error);
                 setIsAvailable(false);
             })
     }
@@ -89,7 +88,7 @@ function SimpleSearch() {
 
     // work functions
     function search() {
-        let id = Number(userInput);
+        var id = Number(userInput);
 
         if (id > 0) {
             // user provide an id
