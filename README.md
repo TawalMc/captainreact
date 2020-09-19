@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Captain React
 
-## Available Scripts
+Captain React is a web app based on React which use data retrieved from [superheroapi](https://superheroapi.com/)
+and display them into a card to the user.
+You can play at this address [https://captainreact.herokuapp.com/](https://captainreact.herokuapp.com/).
 
-In the project directory, you can run:
+#### Material UI && Fetch API && superheroapi 
 
-### `npm start`
+1. I have used [Material UI](https://material-ui.com/) for the frontend because it allows me to avoid the positioning of elements and offered
+prebuilt style that I like. And the interface is the common android UI interface.
+2. Fetch API is used from front-end to retrieve data and treat it like json file.
+3. [superheroapi](https://superheroapi.com/) provide an api which allows to have photos, name and more informations about a hero. A key is need and the name or ID of hero is the request.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### npm install
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* Ensure to have nodejs installed and so npm
+* Ensure to have git configured on your dev machines
+Launch your console and type:
 
-### `npm test`
+```
+git clone https://github.com/TawalMc/captainreact.git
+```
+and after
+```
+cd captainreact
+npm install
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Update
 
-### `npm run build`
+I have currently a CORS (Crossing-Origin Ressource Sharing) issues with retrieving data from superheroapi to my web app. So I have avoid the problem on Chrome 🤣 by installing CORS extension and all things work perfectly but when deploy it on heroku my web app doesn't retrieve data because it is bloced. I work to correct the problem.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Contacts
+Follow me on
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+[Github](https://github.com/TawalMc) 😎 [Twitter](https://twitter.com/Tawal_Mc?s=03)  😎 [Dev.to](https://dev.to/tawalmc)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Copyright: 2020
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
