@@ -4,6 +4,10 @@ Captain React is a web app based on React which use data retrieved from [superhe
 and display them into a card to the user.
 You can play at this address [https://captainreact.herokuapp.com/](https://captainreact.herokuapp.com/).
 
+#### CORS issues
+The app cannot work properly on your browser due to a cors issues. If you can, download CORS extension in your
+browser and enabled it, so can retrieve data by ID.
+
 #### Material UI && Fetch API && superheroapi 
 
 1. I have used [Material UI](https://material-ui.com/) for the frontend because it allows me to avoid the positioning of elements and offered
