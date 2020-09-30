@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: "#FDFEFE",
+        marginBottom: theme.spacing(4),
     },
     typName: {
         color: "#EC407A",
@@ -89,7 +90,7 @@ export function HeroSections(props) {
     );
 }
 
-export function DataNotAvailable() {
+export function DataNotAvailable(props) {
     const classes = useStyles();
     return (
         <Card className={classes.root} square={true}>
@@ -97,7 +98,7 @@ export function DataNotAvailable() {
                 <Grid container spacing={2} justify="center" alignItems="center">
                     <Grid item xs={12}>
                         <Typography align="left" color="error">
-                            😒😒😒 We know you! You entered a wrong hero name or ID! Try again and leave me alone!
+                            😒😒😒 We know you! {props.text}
                         </Typography>
                     </Grid>
                 </Grid>
