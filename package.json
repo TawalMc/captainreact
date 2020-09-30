@@ -10,7 +10,7 @@
         "twitter": "@Tawal_Mc"
     },
     "scripts": {
-        "start": "cd server && npm install cd .. && node server/server.js",
+        "start": "cd server && npm install && cd .. && node server/server.js",
         "build": "cd client/ && npm install && npm run build"
     },
     "cacheDirectories": [
