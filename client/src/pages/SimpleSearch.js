@@ -28,88 +28,52 @@ const useStyles = makeStyles((theme) => ({
 function SimpleSearch() {
     // state and hook
     const ownStyle = useStyles();
-    //var heroFound = new Hero();
     
     const [userInput, setUserInput] = useState("655"); // to store user input and search heroes 
     const [isAvailable, setIsAvailable] = useState(false); // to store some informations about heroes searched
-    const [heroFound, setHeroFound] = useState(null);
-    // const [render, setRender] = useState(false);
+    const [heroFound, setHeroFound] = useState([]);
+    const [notAvailableText, setNotAvailableText] = useState("Just enter a number or name. Mahou!");
 
     /* useEffect(() => {
         search();
     }); */
 
-    // SuperHero API using
-    function fetchHeroesByName(heroName) {
-        fetch(`https://superheroapi.com/api/${PUBLIC_KEY}/search/${heroName}`)
-            .then(response => response.json())
-            .then(data => {
-             
-            })
-            .catch(error => {
-                alert(error);
-            })
-    }
-
-    function fetchHeroesById(heroID) {
-        fetch(`https://superheroapi.com/api/${PUBLIC_KEY}/${heroID}`)
-            .then(response => response.json())
-            .then(data => {
-
-                if (data.response === "success") {
-                    setHeroFound(treatData(data));
-                    setIsAvailable(true);
-
-                } else {
-                    setIsAvailable(false);
-                }
-                
-            })
-            .catch(error => {
-                console.log(error);
-                setIsAvailable(false);
-            })
-    }
-
-
-    function treatData(heroInfos) {
-        const hero = new Hero(heroInfos.image.url,
-            heroInfos.name,
-            heroInfos.biography["full-name"],
-            heroInfos.biography.aliases[0],
-            heroInfos.biography["place-of-birth"],
-            heroInfos.biography["alter-egos"],
-            heroInfos.appearance.height[1],
-            heroInfos.appearance.weight[1],
-            heroInfos.biography.publisher
-        );
-       return hero;
+    // when ssr
+    function callHeroAPI(input) {
+        fetch("/api/heroAPI",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({post: input})
+        })
+        .then(response => response.json())
+        .then(data => {
+            
+            if(data.status === true) {
+                setHeroFound(data.value);
+            } else {
+                setNotAvailableText(data.value+". Try again and leave me alone!");
+            }
+            setIsAvailable(data.status);
+            
+        })
+        .catch(err => {
+            setNotAvailableText("An error occurs when loading data!");
+            setIsAvailable(false);
+        });
     }
 
     // work functions
     function search() {
-        var id = Number(userInput);
-        
-        if (id > 0) {
-            // user provide an id
-            if (id > 731) {
-                console.log("Not exist");
-                setIsAvailable(false);
-            } else {
-                fetchHeroesById(id);
-            }
-        }
-        else {
-            // user provide a name
-            fetchHeroesByName(userInput);
-        }
-    }
 
+        callHeroAPI(userInput);
+    }
 
     function handleUserInput(event) {
         setUserInput(event.target.value);
     }
-
 
 
     return (
@@ -125,26 +89,17 @@ function SimpleSearch() {
 
                 <Grid container item alignItems="center" justify="center">
                     <Grid item xs={11} md={3}>
-                        {isAvailable && <HeroSections heroData={heroFound} />}   { /*: <DataNotAvailable /> */}
+                        {isAvailable ? 
+                            heroFound.map( (heroesData, index) => 
+                                <HeroSections heroData={heroesData} key={index} />
+                            ) :
+                            <DataNotAvailable text={notAvailableText} />
+                        }
                     </Grid>
                 </Grid>
             </Grid>
         </Grid>
     );
-}
-
-class Hero {
-    constructor(photoUrl, heroName, realName, aliaseName, birthPlace, alterEgo, height, weight, publisher) {
-        this.photoUrl = photoUrl;
-        this.heroName = heroName;
-        this.realName = realName;
-        this.aliaseName = aliaseName;
-        this.birthPlace = birthPlace;
-        this.alterEgo = alterEgo;
-        this.height = height;
-        this.weight = weight;
-        this.publisher = publisher;
-    }
 }
 
 
