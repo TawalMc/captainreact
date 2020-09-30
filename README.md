@@ -24,13 +24,25 @@ Launch your console and type:
 git clone https://github.com/TawalMc/captainreact.git
 ```
 
-and after
+first install dependencies
 ```
 cd captainreact
 cd client
 npm install
 cd ../server
 npm install
+```
+
+* second install devdependencies :_[concurrently](https://www.npmjs.com/package/concurrently)_ module and _[nodemon](https://www.npmjs.com/package/nodemon)_
+
+```
+npm install -g concurrently
+npm install -g nodemon
+```
+* Last run **under root** project with npm(windows):
+
+```
+npm run dev
 ```
 
 #### Update
