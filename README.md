@@ -51,6 +51,9 @@ npm run dev
 _But_
 **Know**: The CORS issues is resolved when I move to SSR with NodeJS/Express as Backend and React/MUI as Frontend.
 
+#### Thanks
+Thank you to [Eau Silva](https://github.com/esausilva/example-create-react-app-express) for his tutorial and github pages that I follow to do the SSR.
+
 #### Contacts
 Follow me on
 
