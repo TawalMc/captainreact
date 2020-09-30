@@ -5,12 +5,11 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import "../css/SimpleSearch.css";
 import NavBar from "../components/NavBar";
 import {HeroSections, DataNotAvailable} from "../components/HeroSections";
-import PUBLIC_KEY from "../API_KEYS/API_KEY";
 
 
 const useStyles = makeStyles((theme) => ({
     searchContainer: {
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(10),
     },
     typHelp: {
         marginBottom: theme.spacing(2),
@@ -33,10 +32,6 @@ function SimpleSearch() {
     const [isAvailable, setIsAvailable] = useState(false); // to store some informations about heroes searched
     const [heroFound, setHeroFound] = useState([]);
     const [notAvailableText, setNotAvailableText] = useState("Just enter a number or name. Mahou!");
-
-    /* useEffect(() => {
-        search();
-    }); */
 
     // when ssr
     function callHeroAPI(input) {
@@ -80,7 +75,7 @@ function SimpleSearch() {
         <Grid container className="main-container">
             <Grid item xs={12}>
                 <NavBar />
-                <Grid container item spacing={1} alignItems="flex-end" className={ownStyle.searchContainer} justify="center">
+                <Grid container item spacing={1} alignItems="flex-end" className={ownStyle.searchContainer} justify="center" id="top">
                     <Grid item> <SearchOutlinedIcon /> </Grid>
                     <Grid item> <TextField color="secondary" id="search-text" label="search hero" size="medium" defaultValue="655" onChange={handleUserInput} /> </Grid>
                     <Grid item> <Button color="secondary" variant="outlined" onClick={() => search()} >Search</Button> </Grid>

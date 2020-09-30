@@ -11,8 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post("/api/heroAPI", (req, res) => {
-    console.log(req.body);
-
+    
     retrieveData(req.body.post, res);
 })
 

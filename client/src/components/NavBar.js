@@ -1,7 +1,7 @@
 import React from 'react';
 import {makeStyles,
     AppBar, IconButton, Toolbar,
-    Typography, Button, /* Drawer */} from '@material-ui/core';
+    Typography, Button} from '@material-ui/core';
     import FitnessCenterOutlinedIcon from '@material-ui/icons/FitnessCenterOutlined';
 
 import "../css/SimpleSearch.css";
@@ -22,7 +22,7 @@ function NavBar() {
     const ownStyle = useStyles();
 
     return (
-        <AppBar position="static" color="secondary" className={ownStyle.root}>
+        <AppBar position="fixed" color="secondary" className={ownStyle.root}>
             <Toolbar>
                 <IconButton color="inherit" dge="start" className={ownStyle.menuButon}>
                     <FitnessCenterOutlinedIcon />
@@ -30,7 +30,7 @@ function NavBar() {
                 <Typography variant="h6" className={ownStyle.title}>
                     Captain React
                 </Typography>
-                <Button color="inherit">Heroes</Button>
+                <Button color="inherit" href="#top">Go to top</Button>
             </Toolbar>
         </AppBar>
     );
