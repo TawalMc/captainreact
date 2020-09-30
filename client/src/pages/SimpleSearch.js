@@ -90,10 +90,7 @@ function SimpleSearch() {
     function search() {
         var id = Number(userInput);
         
-        fetch("/")
-        .then(response => console.log(response.body))
-        .catch(err => console.log(err))
-        /* if (id > 0) {
+        if (id > 0) {
             // user provide an id
             if (id > 731) {
                 console.log("Not exist");
@@ -105,7 +102,7 @@ function SimpleSearch() {
         else {
             // user provide a name
             fetchHeroesByName(userInput);
-        } */
+        }
     }
 
 

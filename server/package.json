@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "captain_react_server",
   "version": "0.1.0",
   "description": "Server to ssr",
   "main": "server.js",
