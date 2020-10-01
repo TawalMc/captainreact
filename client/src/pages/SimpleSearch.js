@@ -49,7 +49,7 @@ function SimpleSearch() {
             if(data.status === true) {
                 setHeroFound(data.value);
             } else {
-                setNotAvailableText(data.value+". Try again and leave me alone!");
+                setNotAvailableText(data.value+". Try again and leave me alone! Where are you come from?");
             }
             setIsAvailable(data.status);
             

@@ -98,7 +98,7 @@ export function DataNotAvailable(props) {
                 <Grid container spacing={2} justify="center" alignItems="center">
                     <Grid item xs={12}>
                         <Typography align="left" color="error">
-                            😒😒😒 We know you! {props.text}
+                            😒😒😒 We know you! {props.text} I said: A hero name inh like black, spider antman and not your crazy Naruto or Deku.
                         </Typography>
                     </Grid>
                 </Grid>
